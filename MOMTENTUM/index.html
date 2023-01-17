@@ -4,25 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel ="stylesheet" href="style.css"/>
-    <title>Momentum App</title>
+    <link rel ="stylesheet" href="css/index.css"/>
+    <title>may your day shine bright</title>
 </head>
 <body>
+    <span class='js-temp'></span>
+    <span class='js-place'></span> 
+    <div class="js-clock">
+        <h1>2023-01-17</h1>
+        <h2>00:00</h2>
+     </div>
+    <h2 class="hidden" id="greeting"></h2>
     <form class="hidden" id="login-form">
-        <input required maxlength="15" type="text" placeholder="what is your name"/>
-        <input type ="submit" value="Log In"/>
-    <h1 id ="greeting" class ="hidden"></h1>
-    <script src="app.js"></script>
+        <input type='text' placeholder="What is your name?"/>
+    </form>
+    <h5>Write down things to do today</h5>  
+    <form  id="todo-form">
+        <input type="text" placeholder="" required/>
+    </form>
+    <ul id = "todo-list"></ul>
+    </div>
+    <div id="quote" class="wrapper">
+        <blockquote>
+          <span></span>
+          <span></span>
+        </blockquote>
+
+       
+    <script src="js/login.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/weather.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
 
 
 

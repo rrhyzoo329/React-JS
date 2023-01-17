@@ -1,4 +1,4 @@
-const images = ["1.jpeg","2.jpeg","3.jpeg"];
+/* const images = ["1.jpeg","2.jpeg","3.jpeg"];
 
 const chosenImage = images[Math.floor(Math.random() * images.length)];
 
@@ -6,17 +6,30 @@ const chosenImage = images[Math.floor(Math.random() * images.length)];
 const bgImage = document.createElement("img");
 
 bgImage.src = `img/${chosenImage}`;
-document.body.appendChild(bgImage);
+document.body.appendChild(bgImage); */
 
 
+const body = document.querySelector("body");
+const IMG_NUMBER=6;
 
-// const IMAGE_LENGTH = 6;
-// const images = [];
+function getNumber(){
+    return Math.ceil(Math.random()* IMG_NUMBER);
+}
 
-// for (let i = 0; i < IMAGE_LENGTH; i++) {
-//   images.push(`${i}.jpeg`);
-// }
+// make random number
+function init() {
+    const randomNumber = getNumber();
+    showImage(randomNumber);
+}
 
-// const chosenImage = images[Math.floor(Math.random() * images.length)];
+// load image
+function showImage(imgNumber) {
+    const img = new Image();
+    img.src = `img/${imgNumber}.jpeg`;
+    img.classList.add("bgImg");
+    body.prepend(img);
+}
 
-// document.body.style.backgroundImage = `url(img/${chosenImage})`;
+init();
+// 1) 가독성 측면 2) 전역객체를 보호 3)초기화
+
