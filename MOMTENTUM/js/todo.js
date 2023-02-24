@@ -1,56 +1,96 @@
-const toDoForm = document.getElementById("todo-form");
-const toDoInput = toDoForm.querySelector("input")
-const toDoList = document.getElementById("todo-list");
+const toDoForm = document.querySelector("#todo-form");
+const toDoInput = document.querySelector("#todo-form input");
+const toDoList = document.querySelector("#todo-list");
+
 
 const TODOS_KEY = "todos";
 
 let toDos = [];
 
-//show
-function paintToDo(newToDo){
-    const li = document.createElement("li");
-    const span = document.createElement("span");
-    span.innerText = newToDo;
-    const button = document.createElement("button");
-    button.innerText="delete";
-    button.addEventListener("click",deleteToDo);
-    //appendChild(는 맨 마지막에 위치
-    li.appendChild(span);
-    li.appendChild(button);
-    toDoList.appendChild(li);
+
+//save
+function saveToDos(){
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
-
-//create
-
-function handleToDoSubmit(event){
-    event.preventDefault();
-    const newToDo = toDoInput.value;
-    toDoInput.value ="";
-    toDos.push(newToDo);
-    paintToDo(newToDo);
-    savedToDos();
-}
-
-toDoForm.addEventListener("submit",handleToDoSubmit);
 
 
 //delete
 
-function deleteToDo(event){
-    const li = event.target.parentElement
-    // 로컬스토리지 id와 버튼의 id를 비교하여 필터링 후 toDos(배열)에 저장 [필터는 True만 리턴한다.]
-    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
-    li.remove(); 
-    // 로컬스토리지에 저장
-    saveTodos(); 
+function deleteTodo(e){
+    const li = e.target.parentElement;
+    li.remove();
+    toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
+    saveToDos();
 }
 
-//saving 
-// localstorage 는 오직 text만 저장 >> JSON.stringify("배열") 이용 >> JSON.Parse 이용
 
-function saveTodos(){
-    localStorage.setItem(TODOS_KEY,JSON.stringify(toDos))
+
+//show
+function paintTodo(newTodo) {
+  const li = document.createElement("li");
+  li.id = newTodo.id;
+  const span = document.createElement("span");
+  const button = document.createElement("button");
+
+  button.innerText = "❌";
+  button.addEventListener("click", deleteTodo);
+
+  const ckBox = document.createElement("input");
+  ckBox.type = "checkbox";
+  
+  li.appendChild(ckBox); 
+  li.appendChild(span);
+  li.appendChild(button);
+  span.innerText = newTodo.text;
+  toDoList.appendChild(li);
+  
+  ckBox.addEventListener("change", (event) => {
+    if (event.currentTarget.checked) {
+      span.style.textDecoration = "line-through";
+    } else {
+      span.style.textDecoration = "none";
+    }
+  });
 }
+
+//add
+
+function handleToDoSubmit(event){
+  event.preventDefault(); 
+
+  console.log(toDos);
+  if(toDos.length >= 10){
+      alert("두투리스트는 총 10개까지 등록 가능합니다.");
+      toDoInput.value = "";
+
+  }else{
+
+    const newToDo = toDoInput.value;
+
+    if(newToDo.length == 0){
+      alert("내용을 입력해주세요.");
+
+    } else if(newToDo.length >= 10) {
+      alert("10자 이내로 적어주세요.");
+
+    } else {
+
+    toDoInput.value = "";
+    
+    const newToDoObj = {
+        text:newToDo,
+        id:Date.now(),
+    };
+    toDos.push(newToDoObj);
+    paintTodo(newToDoObj);
+    saveToDos();
+    }
+  }
+}
+
+
+
+toDoForm.addEventListener("submit", handleToDoSubmit);
 
 //storage 확인
 
@@ -59,6 +99,13 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 if(savedToDos !== null){
     const parsedToDos = JSON.parse(savedToDos);
     toDos = parsedToDos;
-    parsedToDos.forEach(paintToDo);
+    parsedToDos.forEach(paintTodo);
 }
+
+
+
+
+
+
+
 
