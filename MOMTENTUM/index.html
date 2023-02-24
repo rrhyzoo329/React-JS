@@ -7,12 +7,19 @@
     <link rel ="stylesheet" href="css/index.css"/>
     <title>may your day shine bright</title>
 </head>
-<body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@500&display=swap');
+</style>
+<body> 
     <span class='js-temp'></span>
     <span class='js-place'></span> 
-    <div class="js-clock">
-        <h1>2023-01-17</h1>
-        <h2>00:00</h2>
+    <form action="https://www.google.com/search" method="get">
+        <input type="search" id="search" name="q" placeholder="Search in Google">
+    </form> 
+    <div class="clock" id="clock">
+        <span></span>
+        <br>
+        <span></span>
      </div>
     <h2 class="hidden" id="greeting"></h2>
     <form class="hidden" id="login-form">

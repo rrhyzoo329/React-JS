@@ -1,8 +1,17 @@
+html {
+    height: 100%;
+}
+
+
+
+
 .hidden {
     display: none;
   }
   
   body{
+    font-family: 'Hahmlet', serif;
+    background-size: cover;
     background-color: #34383a;
     text-align: center;
     color: #ecf0f1;
@@ -10,25 +19,28 @@
 
 
 h1{
+    margin-top: 240px;
+    line-height: 6.5em;
     font-size: 20px;
     margin-top:5%;
     margin-bottom: 0px;
 }
 
 h2{
-    font-size: 50px;
+    font-size: 80px;
     margin-top: 0%;
     margin-bottom: 50px;
 }
 
 
 h5{
+    font-size: 30px;
     font-weight: 100;
     font-size: 22px;
     margin-bottom: 10px;
 }
 
-input {
+#login-form input, #todo-form input {
     border: none;
     background: transparent;
     font-size: 22px;
@@ -36,7 +48,11 @@ input {
     text-align:center;
     color: #ecf0f1;
     border-bottom: 2px solid #ecf0f1;
+    font-family: 'Hahmlet', serif;
+    font-family: 'Roboto Slab', serif;
 }
+
+
 
 ul {
     margin-left: 40%;
@@ -69,3 +85,36 @@ li{
     padding-left: 95%;
 }
 
+
+#quote span:first-child {
+    font-style: italic;
+}
+
+#quote span:last-child {
+    font-size: 12px;
+    opacity: 0.85;
+}
+
+#clock span:first-child {
+    list-style: none;
+    font-size: 50px;
+    text-align:left;
+    color: #ecf0f1;
+
+}
+
+#clock span:last-child {
+    font-size: 20px;
+    opacity: 0.85;
+}
+
+#search{
+    font-family: 'Hahmlet', serif;
+    background: transparent;
+    font-size: 22px;
+    margin: 3px;
+    text-align:center;
+    color: #ecf0f1;
+    border-bottom: 2px solid #ecf0f1;
+
+}

@@ -4,9 +4,9 @@
     Date 함수 이용하여 년도, 날짜, 시간 가지고 오기  
  */
 
-    const clockContainer = document.querySelector(".js-clock"),
-    dayTitle = clockContainer.querySelector("h1"),
-    clockTitle = clockContainer.querySelector("h2");
+    const clockContainer = document.querySelector(".clock"),
+    dayTitle = clockContainer.querySelector("span:last-child"),
+    clockTitle = clockContainer.querySelector("span:first-child");
 
 const getTime = () => {
     const date = new Date();
@@ -25,22 +25,23 @@ const getTime = () => {
     let amPm = 'ampm';
 
     if(hours<12){
-        amPm = 'am';
+        amPm = 'AM';
 
     } else{
 
-        amPm = 'pm';
+        amPm = 'PM';
     } 
 
-    dayTitle.innerText = `${year} - ${month < 10 ? `0${month}` : month} - ${day < 10 ? `0${day}` : day}`;
-    clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours} : ${minutes < 10 ? `0${minutes}` : minutes} ${amPm} `;
+    dayTitle.innerText = `${year}년 ${month < 10 ? `0${month}` : month}월 ${day < 10 ? `0${day}` : day}일`;
+    clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours} : ${minutes < 10 ? `0${minutes}` 
+    : minutes} ${amPm}`;
 }
 
 
 //새로고침시 시계 다시 실행시 바로 실행 
 function init(){
     getTime();
-    setInterval(getTime, 1000); // ★ 1초 (1000ms) 마다 getTime 실행
+    setInterval(getTime, 1000); 
 }
  
 init();
