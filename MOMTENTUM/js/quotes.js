@@ -47,11 +47,15 @@ const quotes = [
   const author = document.querySelector("#qutre span:last-child"); 
   math 함수 이용하기 floor(math.random()*배열 길이 : 숫자를 지정하는 것보다 배열 길이가 더 유연함 ) 
   */
+
+const img = document.querySelector("#images");
+const cover = document.querySelector(".img-cover")
+
 const quote = document.querySelector('#quote blockquote span:first-child');
 const author = document.querySelector('#quote blockquote span:last-child');
 
 const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
-quote.innerText = `\n${todaysQuote.quote}\n\n- ${todaysQuote.author} -`;
+quote.innerText = `\n"${todaysQuote.quote}"\n\n- ${todaysQuote.author} -`;
 
 

@@ -5,115 +5,222 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel ="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" integrity="sha512-gMjQeDaELJ0ryCI+FtItusU9MkAifCZcGq789FrzkiM49D8lbDhoaUaIX4ASU187wofMNlgBJ4ckbrXM9sE6Pg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>may your day shine bright</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@500&display=swap');
-</style>
-<body> 
-    <span class='js-temp'></span>
-    <span class='js-place'></span> 
-    <form action="https://www.google.com/search" method="get">
-        <input type="search" id="search" name="q" placeholder="Search in Google">
-    </form> 
-    <div class="clock" id="clock">
+  </style>
+<body>
+<!-- LOGIN/BF***start -->
+  <div id="loginBox" class="#">
+    <!-- SEARCH -->
+      <div class="container">
+        <form action="https://www.google.com/search" method="get" class="search-form">
+          <input type="search" placeholder="Search in Google" />
+          <button type="submit" class="search-button">
+            <img src="icon/search.png">
+          </button>
+        </form>
+      </div>
+      <!-- CLOOCK -->   
+      <div class="mainClock" id="mainClock">
         <span></span>
         <br>
         <span></span>
-     </div>
-    <h2 class="hidden" id="greeting"></h2>
-    <form class="hidden" id="login-form">
-        <input type='text' placeholder="What is your name?"/>
-    </form>
-    <h5>Write down things to do today</h5>  
-    <form  id="todo-form">
-        <input type="text" placeholder="" required/>
-    </form>
-    <ul id = "todo-list"></ul>
-    </div>
-    <div id="quote" class="wrapper">
-        <blockquote>
-          <span></span>
-          <span></span>
-        </blockquote>
+      </div>  
+      <div class="login">
+          <h1>What's your name?</h1>
+        <form action="" id="login-form">
+          <input type="text" name="name" id="name" placeholder="Type your name." autofocus minlength="3">
+          <input type="submit" value="" class="hidden">
+        </form>
+      </div>
+        <!-- WEATHER -->  
+        <span class='main-js-temp'></span>
+        <span class='main-js-place'></span> 
+    </div> 
+  <!-- LOGIN/BF***end -->
 
-       
-    <script src="js/login.js"></script>
-    <script src="js/clock.js"></script>
-    <script src="js/quotes.js"></script>
-    <script src="js/background.js"></script>
-    <script src="js/todo.js"></script>
-    <script src="js/weather.js"></script>
+  <!-- LOGIN/AF***start-->
+  <div id="screenBox">
+     <!-- MAIN CLOOCK -->
+    <div id="clock">   
+      <div class="clock" >
+        <span></span>
+      </div>
+    </div>
+    <!-- SETTING -->
+    <div id="setting">
+      <div id="settingButton"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" ><g><path d="M0,0h24v24H0V0z" fill="none"/><path fill="#393e46" d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></g></svg></div>
+    </div>
+    <div id="settingList">
+        <div id="list-wrapper" class="hidden">
+            <div id="list">
+                <nav class="switch">
+                  <div>
+                  <h2></h2>
+                  <li><button class="changeBgBtn">CHANGE BACKGROUND</button></li>
+                  <li><button class="changeMode">CHANGE MODE</button></li>
+                  <li><button id="changeBtn" class="hidden">LOGOUT</button></li>
+                  <ul id="entered-list">
+                    <div class="settingText">
+                      <span class="title">Information</span> 
+                      <ul> 
+                          <li>배우는 이론 : </li> 
+                          <span ID = "Information">Variables
+                            Functions,
+                            Data Types,
+                            Arrays, Objects,
+                            DOM Functions,
+                            Events,
+                            if / else / for</span>
+                          <li>구현하는 기능 :</li> 
+                          <SPAN ID = "Information">
+                            JS Clock,
+                            JS To Do List,
+                            JS D-DAY,
+                            Get Geolocation,
+                            Get Weather Information
+                          </SPAN>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              </div>
+          </div>
+      </div>   
+    <div class="screen">
+      <main class="main-content">
+        <section class="content-left">
+          <header class="content-left__header">
+            <div class="screen">
+              <button id="userChangeBtn" class="hidden"><img src="icon/logout.svg"></button> 
+              <!--greeting-->
+              <div id="greeting" >
+                <h2></h2>
+                <h3></h3>
+              </div> 
+          </header>
+         <!-- WEATHER -->
+         <article class="weather" id ="weatherBox">
+          <h2>Today Weather</h2>
+          <div class="article-content">
+            <div class="weatherToday">
+              <div class="weatherMain">
+                <span class="weatherIcon"><i class="fa-regular fa-circle-question"></i></span>
+                <div class="weatherText">
+                  <span class="weatherTitle">Unknown</span>
+                  <span class="weatherCity">Unknown</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="weather" id ="weatherBox">
+          <h2>Daily Weather</h2>
+          <div class="article-content">
+            <div class="weatherDaily row0">
+              <div class="weatherMain">
+                <span class="weatherIcon"><i class="fa-regular fa-circle-question"></i></span>
+                <span class="weatherDay"></span>
+              </div>
+              <div class="weatherSummary">
+                <span class="weatherTemp_max">Error</span>
+                <span class="weatherTemp_min">Error</span>
+              </div>
+            </div>
+            <div class="weatherDaily row1">
+              <div class="weatherMain">
+                <span class="weatherIcon"><i class="fa-regular fa-circle-question"></i></span>
+                <span class="weatherDay"></span>
+              </div>
+              <div class="weatherSummary">
+                <span class="weatherTemp_max">Error</span>
+                <span class="weatherTemp_min">Error</span>
+              </div>
+            </div>
+            <div class="weatherDaily row2">
+              <div class="weatherMain">
+                <span class="weatherIcon"><i class="fa-regular fa-circle-question"></i></span>
+                <span class="weatherDay"></span>
+              </div>
+              <div class="weatherSummary">
+                <span class="weatherTemp_max">Error</span>
+                <span class="weatherTemp_min">Error</span>
+              </div>
+            </div>
+            <div class="weatherDaily row3">
+              <div class="weatherMain">
+                <span class="weatherIcon"><i class="fa-regular fa-circle-question"></i></span>
+                <span class="weatherDay"></span>
+              </div>
+              <div class="weatherSummary">
+                <span class="weatherTemp_max">Error</span>
+                <span class="weatherTemp_min">Error</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>                     
+      <section class="content-center">
+        <article class="box" >
+              <!-- TODO FORM -->
+              <h2>To Do List 📝</h2> 
+              <form  id="todo-form">
+                  <input type="text" placeholder="Write down things to do today" required/>
+              </form>
+              <!-- TODO LIST -->
+              <ul id="todo-list"></ul>
+         </article> 
+          <!-- Quote -->
+            <article class="quoteBox"> 
+                <div id="quote">
+                  <h2>TODAY QUOTE</h2>
+                  <blockquote>
+                    <span></span>
+                    <span></span>
+                  </blockquote>
+                </div>
+          </article>
+         </section>    
+        <section class="content-right">
+        <article class="searchBox"> 
+          <!-- SEARCH -->
+          <div id="search" class="box">
+            <form action="https://www.google.com/search" method="get">
+              <input type="search" name="q" placeholder="Search in Google">
+              <button type="submit" class="searchBtn">
+                <img src="icon/search.png">
+              </button>
+            </form>  
+          </div>
+         </article> 
+          <!-- DDAY -->
+          <article class="dDay"> 
+            <div class="dDayBox">
+                <form class="dDay-form">
+                  <input class="dDay_Date" required type="date" max="9999-12-31" />
+                  <input class="dDay_Title"  required type="text" placeholder="Write a D-day title" />
+                  <button class="dDayBtn" type="submit" ><img src="icon/plus-solid.svg"></button>
+                </form>
+            </div>
+          </article> 
+        </section>
+      </main>
+      <div id="backgroundImg"></div>
+    </div>
+  </div>
+<script src="https://kit.fontawesome.com/16a9426e93.js" crossorigin="anonymous"></script>      
+<script src="js/dDay.js"></script>  
+<script src="js/login.js"></script>
+<script src="js/clock.js"></script>
+<script src="js/quotes.js"></script>
+<script src="js/background.js"></script>
+<script src="js/todo.js"></script>
+<script src="js/weather.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

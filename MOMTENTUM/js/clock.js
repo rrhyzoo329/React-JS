@@ -4,10 +4,16 @@
     Date 함수 이용하여 년도, 날짜, 시간 가지고 오기  
  */
 
-    const clockContainer = document.querySelector(".clock"),
-    dayTitle = clockContainer.querySelector("span:last-child"),
+    const clockContainer = document.querySelector(".clock");
+    const mainClockContainer = document.querySelector(".mainClock");
+
+    dayTitle = clockContainer.querySelector("span:last-child");
     clockTitle = clockContainer.querySelector("span:first-child");
 
+    mDayTitle = mainClockContainer.querySelector("span:last-child");
+    mClockTitle = mainClockContainer.querySelector("span:first-child");
+
+//mainclock
 const getTime = () => {
     const date = new Date();
     //"1" >> "01"로 변경하기 : padStart(원하는 글자수,falut일시 추가되는 문자)
@@ -28,12 +34,17 @@ const getTime = () => {
         amPm = 'AM';
 
     } else{
-
         amPm = 'PM';
     } 
 
+
+
     dayTitle.innerText = `${year}년 ${month < 10 ? `0${month}` : month}월 ${day < 10 ? `0${day}` : day}일`;
     clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours} : ${minutes < 10 ? `0${minutes}` 
+    : minutes} ${amPm}`;
+
+    mDayTitle.innerText = `${year}년 ${month < 10 ? `0${month}` : month}월 ${day < 10 ? `0${day}` : day}일`;
+    mClockTitle.innerText = `${hours < 10 ? `0${hours}` : hours} : ${minutes < 10 ? `0${minutes}` 
     : minutes} ${amPm}`;
 }
 
