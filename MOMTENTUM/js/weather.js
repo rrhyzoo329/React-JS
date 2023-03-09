@@ -1,7 +1,7 @@
 const todayWeather = document.querySelector(".weatherToday .weatherTitle");
 const city = document.querySelector(".weatherToday .weatherCity");
 const weatherIcon = document.querySelector(".weatherToday .weatherIcon");
-const API_KEY = "d02ff35f90db91218989a90c4d15d123";
+const API_KEY = "";
 
 const weatherIconList = {
   "01": "fas fa-sun",
